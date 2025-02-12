@@ -1,3 +1,4 @@
+![alt](https://i.imgur.com/PXraSD4.png)
 # VTrust  
 
 VTrust is a Python library for verifying website security, helping developers and users identify potential threats such as insecure certificates, suspicious domains, and known vulnerabilities.  
