@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "vtrust"
 version = "0.1.0"
-description = ""
+description = "VTrust é uma biblioteca Python que ajuda a verificar a segurança de sites. "
 authors = ["Victor <hugovictor.dev@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
+httpx = "^0.28.1"
+python-whois = "^0.9.5"
 
 
 [build-system]
