@@ -2,27 +2,20 @@ import whois
 from datetime import datetime
 
 
-class VTrust:
-    """
-    VTrust is a Python library that helps check website security.
-    """
-
+class WhoisChecker:
     def __init__(self):
         self.whois_data = None
 
     def load_whois_data(self, domain):
         self.whois_data = whois.whois(domain)
-
-    def get_domain_info(self, domain: str) -> bool:
-        if self.whois_data == None:
-            self.load_whois_data(domain)
-
-            if domain == self.whois_data.domain_name.lower():
-                return True
-            else:
-                return False
     
     def check_domain_age(self, domain: str, min_days: int) -> bool:
+        """
+        Checks if the domain is older than the specified minimum age.
+            :param domain: The domain name to check.
+            :param min_days: The minimum age in days that the domain should have.
+            :return: True if the domain is older than the specified age, False otherwise.
+        """
         if self.whois_data == None:
             self.load_whois_data(domain)
 
@@ -50,7 +43,25 @@ class VTrust:
         age_days = (datetime.now() - register_date).days
 
         return age_days >= min_days
+    
 
+    def is_domain_active(self, domain: str):
+        """
+        Checks if the domain is active based on its expiration date.
+            :param domain: The domain name to check.
+            :return: True if the domain is active, False if expired or no expiration date.
+        """
+        if self.whois_data == None:
+            self.load_whois_data(domain)
 
-vtrust = VTrust()
-print(vtrust.check_domain_age("google.com", 400))
+        if self.whois_data.expiration_date:
+
+            expiration_date = self.whois_data.expiration_date[0]
+            expiration_date = expiration_date.date()
+
+            if expiration_date > datetime.now().date():
+                return True
+            else:
+                return False
+        else:
+            return False
