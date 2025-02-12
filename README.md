@@ -1,25 +1,25 @@
-# VTrust
+# VTrust  
 
-VTrust é uma biblioteca Python para verificar a segurança de sites, ajudando desenvolvedores e usuários a identificar potenciais ameaças, como certificados inseguros, domínios suspeitos e vulnerabilidades conhecidas.
+VTrust is a Python library for verifying website security, helping developers and users identify potential threats such as insecure certificates, suspicious domains, and known vulnerabilities.  
 
-## 📌 Funcionalidades
+## 📌 Features  
 
-- [] **Verificação de SSL/TLS**: Confere a validade e segurança do certificado SSL/TLS do site.
-- [] **Tempo de registro do domínio**: Verifica há quanto tempo o site está registrado.
-- [] **Propriedade do site**: Identifica a empresa responsável pelo domínio.
-- [] **Análise de Headers de Segurança**: Detecta configurações ausentes ou incorretas nos cabeçalhos de segurança HTTP.
-- [] **Reputação**: Analisa a reputação do site na internet.
-- [] **Verificação de Blacklists Públicas**: Confere se o site está em listas negras de phishing, malware e spam.
-- [] **Teste de Redirecionamentos Suspeitos**: Identifica redirecionamentos inesperados que podem indicar phishing ou ataques de engenharia social.
+- [] **SSL/TLS Verification**: Checks the validity and security of the website's SSL/TLS certificate.  
+- [] **Domain Registration Time**: Verifies how long the website has been registered.  
+- [] **Website Ownership**: Identifies the company responsible for the domain.  
+- [] **Security Headers Analysis**: Detects missing or misconfigured HTTP security headers.  
+- [] **Reputation**: Analyzes the website's reputation on the internet.  
+- [] **Public Blacklist Check**: Checks if the website appears on phishing, malware, and spam blacklists.  
+- [] **Suspicious Redirect Test**: Identifies unexpected redirects that may indicate phishing or social engineering attacks.  
 
-## 🚀 Instalação
+## 🚀 Installation  
 
-Em breve...
+Coming soon...  
 
-## 🔧 Como Usar
+## 🔧 How to Use  
 
-Em breve...
+Coming soon...  
 
-## 📜 Licença
+## 📜 License  
 
-Este projeto é open-source e será disponibilizado sob uma licença apropriada.
+This project is open-source and will be released under an appropriate license.  
