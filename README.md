@@ -5,7 +5,7 @@ VTrust is a Python library for verifying website security, helping developers an
 
 ## 📌 Features  
 - [] **SSL/TLS Verification**: Checks the validity and security of the website's SSL/TLS certificate.  
-- [x] **Domain Registration Time**: Verifies how long the website has been registered.  
+- [] **Whois Data Verification**: Checks detailed domain information.  
 - [] **Website Ownership**: Identifies the company responsible for the domain.  
 - [] **Security Headers Analysis**: Detects missing or misconfigured HTTP security headers.  
 - [] **Reputation**: Analyzes the website's reputation on the internet.  
@@ -18,8 +18,4 @@ Coming soon...
 
 ## 🔧 How to Use  
 
-Coming soon...  
-
-## 📜 License  
-
-This project is open-source and will be released under an appropriate license.  
+Coming soon...
