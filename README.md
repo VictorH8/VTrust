@@ -1,5 +1,8 @@
 ![VTrust](https://i.imgur.com/PXraSD4.png)  
-![Status](https://img.shields.io/badge/status-Em%20Desenvolvimento-red)  
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-red" alt="Status">
+</p>
+
 
 ## 🔐 VTrust – Verifique antes de confiar   
 
