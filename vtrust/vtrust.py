@@ -23,3 +23,7 @@ class VTrust:
     def is_cache_control_secure(self, domain: str):
         is_cache_control_secure = self.HeadersChecker.is_cache_control_secure(domain)
         return is_cache_control_secure
+    
+    def check_security_headers(self, domain: str):
+        results = self.HeadersChecker.check_security_headers(domain)
+        return results
