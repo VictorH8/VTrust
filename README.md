@@ -1,6 +1,10 @@
-![VTrust](https://i.imgur.com/PXraSD4.png)
+![VTrust](https://i.imgur.com/PXraSD4.png)  
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-red" alt="Status">
+</p>
 
-# 🔐 VTrust – Auditoria Inteligente de Segurança para Websites  
+
+## 🔐 VTrust – Verifique antes de confiar   
 
 **VTrust** é uma biblioteca Python avançada para análise e verificação da segurança de websites. Criada para desenvolvedores, pesquisadores e profissionais de cibersegurança, a ferramenta identifica ameaças como certificados inseguros, domínios suspeitos e vulnerabilidades críticas.  
 
@@ -30,8 +34,7 @@
 
 ## 🤝 Contribuindo para o VTrust  
 
-Quer ajudar a melhorar o VTrust? Qualquer contribuição é bem-vinda!
-
+Quer ajudar a melhorar o VTrust? Qualquer contribuição é bem-vinda!  
 
 ### 📌 Tipos de Contribuições  
 
@@ -55,5 +58,3 @@ Sua ajuda é essencial para tornar o **VTrust** ainda mais robusto e eficiente. 
 🔹 Documentação clara e bem estruturada é fundamental!  
 - Corrija erros gramaticais ou melhore explicações.  
 - Mantenha a documentação atualizada conforme novas funcionalidades forem adicionadas.  
-
-
