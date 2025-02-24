@@ -10,20 +10,16 @@ class VTrust:
 
     def __init__(self):
         self.whois_checker = WhoisChecker()
-        self.HeadersChecker = SecurityHeadersChecker()
+        self.headers_checker = SecurityHeadersChecker()
 
     def check_domain_age(self, domain: str, min_days: int):
-        domain_age = self.whois_checker.check_domain_age(domain, min_days)
-        return domain_age
+        return self.whois_checker.check_domain_age(domain, min_days)
 
     def is_domain_active(self, domain: str):
-        domain_active = self.whois_checker.is_domain_active(domain)
-        return domain_active
+        return self.whois_checker.is_domain_active(domain)
     
     def is_cache_control_secure(self, domain: str):
-        is_cache_control_secure = self.HeadersChecker.is_cache_control_secure(domain)
-        return is_cache_control_secure
+        return self.headers_checker.is_cache_control_secure(domain)
     
     def check_security_headers(self, domain: str):
-        results = self.HeadersChecker.check_security_headers(domain)
-        return results
+        return self.headers_checker.check_security_headers(domain)
