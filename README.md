@@ -3,7 +3,6 @@
   <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-red" alt="Status">
 </p>
 
-
 ## 🔐 VTrust – Verifique antes de confiar   
 
 **VTrust** é uma biblioteca Python avançada para análise e verificação da segurança de websites. Criada para desenvolvedores, pesquisadores e profissionais de cibersegurança, a ferramenta identifica ameaças como certificados inseguros, domínios suspeitos e vulnerabilidades críticas.  
@@ -26,11 +25,17 @@
 
 ## 📥 Instalação  
 
-(Em breve...)  
+Para instalar o **VTrust** facilmente, use o comando abaixo:
+
+```bash
+pip install vtrust
+```
+
+(Em breve mais informações sobre dependências e configurações adicionais.)
 
 ## ⚡ Como Usar  
 
-(Em breve...)  
+(Em breve...)
 
 ## 🤝 Contribuindo para o VTrust  
 
@@ -58,3 +63,5 @@ Sua ajuda é essencial para tornar o **VTrust** ainda mais robusto e eficiente. 
 🔹 Documentação clara e bem estruturada é fundamental!  
 - Corrija erros gramaticais ou melhore explicações.  
 - Mantenha a documentação atualizada conforme novas funcionalidades forem adicionadas.  
+
+---
