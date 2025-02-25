@@ -2,10 +2,20 @@ import httpx
 from urllib.parse import urlparse
 import logging
 from typing import Optional, Dict
+import os
 
-logging.basicConfig(level=logging.INFO)
+project_root = os.getcwd()
+
+log_file_path = os.path.join(project_root, 'security_headers.log')
+
+logging.basicConfig(
+    filename=log_file_path,
+    filemode='a',
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
 logger = logging.getLogger(__name__)
-
 
 class SecurityHeadersChecker:
     def __init__(self, timeout: int = 10):
