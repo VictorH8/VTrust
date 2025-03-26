@@ -1,11 +1,11 @@
-import httpx
-from urllib.parse import urlparse
 import logging
-from typing import Optional, Dict
 import os
+from typing import Dict, Optional
+from urllib.parse import urlparse
+
+import httpx
 
 project_root = os.getcwd()
-
 log_file_path = os.path.join(project_root, 'security_headers.log')
 
 logging.basicConfig(
@@ -109,3 +109,4 @@ class SecurityHeadersChecker:
 
         logger.info(f"Resultados de verificação de cabeçalhos para {domain}: {results}")
         return results
+

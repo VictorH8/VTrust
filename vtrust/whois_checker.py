@@ -1,5 +1,6 @@
-import whois
 from datetime import datetime
+
+import whois
 
 
 class WhoisChecker:
