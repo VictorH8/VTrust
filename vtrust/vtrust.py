@@ -1,6 +1,6 @@
 from .check_security_headers import SecurityHeadersChecker
-from .whois_checker import WhoisChecker
 from .check_ssl import CheckSsl
+from .whois_checker import WhoisChecker
 
 
 class VTrust:
