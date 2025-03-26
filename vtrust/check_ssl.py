@@ -3,7 +3,7 @@ import ssl
 from urllib.parse import urlparse
 
 
-class CheckSsl:
+class CheckSsl():
 
     @staticmethod
     def check_ssl(domain: str, timeout: int = 10):

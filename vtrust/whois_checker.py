@@ -9,7 +9,7 @@ class WhoisChecker:
 
     def load_whois_data(self, domain):
         self.whois_data = whois.whois(domain)
-
+    
     def check_domain_age(self, domain: str, min_days: int) -> bool:
         """
         Checks if the domain is older than the specified minimum age.
@@ -20,10 +20,10 @@ class WhoisChecker:
         if self.whois_data == None:
             self.load_whois_data(domain)
 
-        if not self.whois_data or not hasattr(self.whois_data, "creation_date"):
+        if not self.whois_data or not hasattr(self.whois_data, 'creation_date'):
             print("Error: Unable to obtain domain creation data.")
             return False
-
+        
         register_date = self.whois_data.creation_date
 
         if isinstance(register_date, list):
@@ -39,10 +39,12 @@ class WhoisChecker:
             except ValueError:
                 print("Error: Domain creation date in invalid format.")
                 return False
+            
 
         age_days = (datetime.now() - register_date).days
 
         return age_days >= min_days
+    
 
     def is_domain_active(self, domain: str):
         """
