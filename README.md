@@ -1,14 +1,9 @@
 ![VTrust](https://i.imgur.com/PXraSD4.png)  
-
-
 <p align="center">
-  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
-
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=007BFF&style=for-the-badge" alt="Status Badge"/>
+  <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-red" alt="Status">
 </p>
 
-<h2> 🔐 VTrust – Verifique antes de confiar </h2>  
+## 🔐 VTrust – Verifique antes de confiar   
 
 **VTrust** é uma biblioteca Python avançada para análise e verificação da segurança de websites. Criada para desenvolvedores, pesquisadores e profissionais de cibersegurança, a ferramenta identifica ameaças como certificados inseguros, domínios suspeitos e vulnerabilidades críticas.  
 
@@ -36,22 +31,11 @@ Para instalar o **VTrust** facilmente, use o comando abaixo:
 pip install vtrust
 ```
 
+(Em breve mais informações sobre dependências e configurações adicionais.)
 
 ## ⚡ Como Usar  
 
-
-```python
-from vtrust import VTrust
-
-# Cria uma instância do VTrust
-vtrust = VTrust()
-
-# Verifica se o site usa SSL/TLS corretamente
-domain = "example.com"
-is_ssl_valid = vtrust.check_ssl(domain)
-
-print(f"O domínio {domain} está usando SSL/TLS corretamente? {is_ssl_valid}")
-```
+(Em breve...)
 
 ## 🤝 Contribuindo para o VTrust  
 
