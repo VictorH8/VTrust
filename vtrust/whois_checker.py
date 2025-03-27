@@ -1,27 +1,30 @@
 from datetime import datetime
-
 import whois
+from colorama import Fore, Style, init
 
+# Inicializa o colorama
+init(autoreset=True)
 
 class WhoisChecker:
     def __init__(self):
         self.whois_data = None
 
     def load_whois_data(self, domain):
+        print(f"{Fore.CYAN}[INFO] Buscando dados WHOIS para {domain}...{Style.RESET_ALL}")
         self.whois_data = whois.whois(domain)
-    
-    def check_domain_age(self, domain: str, min_days: int) -> bool:
+
+    def check_domain_age(self, domain: str, min_days: int = 365) -> bool:
         """
-        Checks if the domain is older than the specified minimum age.
-            :param domain: The domain name to check.
-            :param min_days: The minimum age in days that the domain should have.
-            :return: True if the domain is older than the specified age, False otherwise.
+        Verifica se o domínio é mais antigo que a idade mínima especificada (padrão: 365 dias).
+            :param domain: O nome do domínio a ser verificado.
+            :param min_days: A idade mínima em dias que o domínio deve ter (padrão é 365 dias).
+            :return: True se o domínio for mais velho que a idade especificada, False caso contrário.
         """
-        if self.whois_data == None:
+        if self.whois_data is None:
             self.load_whois_data(domain)
 
         if not self.whois_data or not hasattr(self.whois_data, 'creation_date'):
-            print("Error: Unable to obtain domain creation data.")
+            print(f"{Fore.RED}[ERRO] Não foi possível obter os dados de criação do domínio {domain}.{Style.RESET_ALL}")
             return False
         
         register_date = self.whois_data.creation_date
@@ -30,39 +33,44 @@ class WhoisChecker:
             register_date = register_date[0] if register_date else None
 
         if register_date is None:
-            print("Error: Domain creation date not found.")
+            print(f"{Fore.RED}[ERRO] Data de criação do domínio não encontrada para {domain}.{Style.RESET_ALL}")
             return False
 
         if isinstance(register_date, str):
             try:
                 register_date = datetime.strptime(register_date, "%Y-%m-%d %H:%M:%S")
             except ValueError:
-                print("Error: Domain creation date in invalid format.")
+                print(f"{Fore.RED}[ERRO] Formato de data de criação inválido para {domain}.{Style.RESET_ALL}")
                 return False
-            
 
         age_days = (datetime.now() - register_date).days
 
-        return age_days >= min_days
-    
+        if age_days >= min_days:
+            print(f"{Fore.GREEN}[SUCESSO] O domínio {domain} tem mais de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}")
+            return True
+        else:
+            print(f"{Fore.YELLOW}[AVISO] O domínio {domain} tem menos de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}")
+            return False
 
     def is_domain_active(self, domain: str):
         """
-        Checks if the domain is active based on its expiration date.
-            :param domain: The domain name to check.
-            :return: True if the domain is active, False if expired or no expiration date.
+        Verifica se o domínio está ativo com base na sua data de expiração.
+            :param domain: O nome do domínio a ser verificado.
+            :return: True se o domínio estiver ativo, False se expirado ou sem data de expiração.
         """
-        if self.whois_data == None:
+        if self.whois_data is None:
             self.load_whois_data(domain)
 
         if self.whois_data.expiration_date:
-
             expiration_date = self.whois_data.expiration_date[0]
             expiration_date = expiration_date.date()
 
             if expiration_date > datetime.now().date():
+                print(f"{Fore.GREEN}[SUCESSO] O domínio {domain} está ativo. Data de expiração: {expiration_date}{Style.RESET_ALL}")
                 return True
             else:
+                print(f"{Fore.RED}[ERRO] O domínio {domain} expirou. Data de expiração: {expiration_date}{Style.RESET_ALL}")
                 return False
         else:
+            print(f"{Fore.RED}[ERRO] Não foi encontrada data de expiração para {domain}.{Style.RESET_ALL}")
             return False
