@@ -2,7 +2,6 @@ from datetime import datetime
 import whois
 from colorama import Fore, Style, init
 
-# Inicializa o colorama
 init(autoreset=True)
 
 class WhoisChecker:
