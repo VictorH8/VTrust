@@ -26,20 +26,15 @@ class CheckSsl:
                         validade = certificado.get("notAfter")
                         emissor = certificado.get("issuer")
 
-                        print(f"{Fore.GREEN}[✔] Certificado SSL válido para {domain}.{Style.RESET_ALL}")
-                        print(f"    {Fore.CYAN}Emissor: {emissor}{Style.RESET_ALL}")
-                        print(f"    {Fore.YELLOW}Válido até: {validade}{Style.RESET_ALL}")
-
-                        return True
+                        return f"""{Fore.GREEN}[✔] Certificado SSL válido para {domain}.{Style.RESET_ALL}
+{Fore.CYAN}Emissor: {emissor}{Style.RESET_ALL}
+{Fore.YELLOW}Válido até: {validade}{Style.RESET_ALL}"""
                     else:
-                        return False
+                        return f"{Fore.RED}[✖] Certificado SSL não encontrado para {domain}.{Style.RESET_ALL}"
 
         except ssl.SSLError as e:
-            print(f"{Fore.RED}[✘] Erro SSL ao conectar com {domain}: {e}{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[✘] Erro SSL ao conectar com {domain}: {e}{Style.RESET_ALL}"
         except socket.timeout:
-            print(f"{Fore.RED}[✘] Tempo de conexão excedido ao tentar conectar com {domain}.{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[✘] Tempo de conexão excedido ao tentar conectar com {domain}.{Style.RESET_ALL}"
         except socket.error:
-            print(f"{Fore.RED}[✘] Falha ao conectar com {domain} na porta 443.{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[✘] Falha ao conectar com {domain} na porta 443.{Style.RESET_ALL}"

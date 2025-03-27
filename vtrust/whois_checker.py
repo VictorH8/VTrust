@@ -23,8 +23,7 @@ class WhoisChecker:
             self.load_whois_data(domain)
 
         if not self.whois_data or not hasattr(self.whois_data, 'creation_date'):
-            print(f"{Fore.RED}[ERRO] Não foi possível obter os dados de criação do domínio {domain}.{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[ERRO] Não foi possível obter os dados de criação do domínio {domain}.{Style.RESET_ALL}"
         
         register_date = self.whois_data.creation_date
 
@@ -32,24 +31,20 @@ class WhoisChecker:
             register_date = register_date[0] if register_date else None
 
         if register_date is None:
-            print(f"{Fore.RED}[ERRO] Data de criação do domínio não encontrada para {domain}.{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[ERRO] Data de criação do domínio não encontrada para {domain}.{Style.RESET_ALL}"
 
         if isinstance(register_date, str):
             try:
                 register_date = datetime.strptime(register_date, "%Y-%m-%d %H:%M:%S")
             except ValueError:
-                print(f"{Fore.RED}[ERRO] Formato de data de criação inválido para {domain}.{Style.RESET_ALL}")
-                return False
+                return f"{Fore.RED}[ERRO] Formato de data de criação inválido para {domain}.{Style.RESET_ALL}"
 
         age_days = (datetime.now() - register_date).days
 
         if age_days >= min_days:
-            print(f"{Fore.GREEN}[SUCESSO] O domínio {domain} tem mais de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}")
-            return True
+            return f"{Fore.GREEN}[SUCESSO] O domínio {domain} tem mais de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}"
         else:
-            print(f"{Fore.YELLOW}[AVISO] O domínio {domain} tem menos de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}")
-            return False
+            return f"{Fore.YELLOW}[AVISO] O domínio {domain} tem menos de {min_days} dias. ({age_days} dias de idade){Style.RESET_ALL}"
 
     def is_domain_active(self, domain: str):
         """
@@ -65,11 +60,8 @@ class WhoisChecker:
             expiration_date = expiration_date.date()
 
             if expiration_date > datetime.now().date():
-                print(f"{Fore.GREEN}[SUCESSO] O domínio {domain} está ativo. Data de expiração: {expiration_date}{Style.RESET_ALL}")
-                return True
+                return f"{Fore.GREEN}[SUCESSO] O domínio {domain} está ativo. Data de expiração: {expiration_date}{Style.RESET_ALL}"
             else:
-                print(f"{Fore.RED}[ERRO] O domínio {domain} expirou. Data de expiração: {expiration_date}{Style.RESET_ALL}")
-                return False
+                return f"{Fore.RED}[ERRO] O domínio {domain} expirou. Data de expiração: {expiration_date}{Style.RESET_ALL}"
         else:
-            print(f"{Fore.RED}[ERRO] Não foi encontrada data de expiração para {domain}.{Style.RESET_ALL}")
-            return False
+            return f"{Fore.RED}[ERRO] Não foi encontrada data de expiração para {domain}.{Style.RESET_ALL}"
